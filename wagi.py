@@ -15,25 +15,24 @@ waga_paczka=0
 waga_element=0
 nr_element=0
 krok=0
-while krok <20:
-    krok +=1
-    waga_element=float(input())
+while True:
+    krok += 1
+    waga_element = float(input())
     if waga_element == 0:
+# gdy zero to niech wchodzi do else
         print(error_waga)
-        print('Bye')
         break
+# gdy pusty string to continue zrobic
     if waga_element > 10:
         print(error_waga)
-        print('Bye')
         break
     if waga_element < 1:
         print(error_waga)
-        print('Bye')
         break
-    nr_element=krok
-    waga_paczka=waga_element
+    continue
 
-
+# nr_element=(krok)
+# waga_paczka=waga_element
 # waga_paczka=(waga element)+
 # for nr_element in range (1, nr_element+1, 1):
 # waga_paczka=waga_element+
@@ -41,10 +40,9 @@ while krok <20:
 else:
     print("*** Podsumowanie ***")
     print("Liczba paczek wysłanych:")
-# round dodać
+# round dodać?
     print("Liczba kilogramów wysłanych:")
 # suma_pustych = liczba paczek * 20 - liczba kilogramów wysłanych
     print(("Suma pustych kilogramów: "), " ")
 #
     print(("Najwięcej pustych kg miała paczka nr: "), " ", ("to było:"), " ")
-
