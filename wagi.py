@@ -1,7 +1,7 @@
-podaj="Podaj wagi elementow w kg, min 1 max 10. Zero konczy zaladunek."
-error_waga="Podano zla wage elementu. Min 1kg, max 10kg. KONIEC PROGRAMU."
+enter = "Enter the weight of the elements in kg, min 1kg max 10kg. Zero completes loading."
+enter_error = "The item was considered to be wrong. Min 1 kg, max 10 kg. END OF THE PROGRAM!"
 
-print(podaj)
+print(enter)
 
 waga_paczka= 0              # waga paczki
 nr_paczka = 1               # nr paczki wyslane
@@ -16,23 +16,23 @@ waga_element = 0            # waga elementu pobrana z inta
 suma_waga_element = 0       # suma kg pobranych z inta
 nr_element = 0              # nr kolejnego elementu
 
-krok=0
-error=False
+step = 0
+error = False
 while True:
-    krok += 1
-    print("Element nr ", krok, "waga:")
+    step += 1
+    print("Element nr ", step, "waga:")
     waga_element = float(input())
     if waga_element == 0:
         error = False
-# print(error_waga)
+# print(enter_error)
         break
     if waga_element > 10:
-        error=True
-        print(error_waga)
+        error = True
+        print(enter_error)
         break
     if waga_element < 1:
         error = True
-        print(error_waga)
+        print(enter_error)
         break
 
     suma_waga_element = round(suma_waga_element + waga_element,2)  # sumujemy wyslane kilogramy
