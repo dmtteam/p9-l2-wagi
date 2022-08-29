@@ -68,9 +68,9 @@ while True:
     continue
 if not error:
     nr_paczka = nr_paczka-1
-    print("*** Podsumowanie ***")
-    print("Liczba paczek wysłanych:", nr_paczka)
-    print("Liczba kilogramów wysłanych:", suma_waga_element)
+    print("*** Summary ***")
+    print("Number of packages shipped:", nr_paczka)
+    print("Number of kilos shipped:", suma_waga_element)
     # suma_pustych = liczba paczek * 20 - liczba kilogramów wysłanych
-    print("Suma pustych kilogramów: ", suma_puste_kg_paczka)
-    print("Najwięcej pustych kg miała paczka nr:", nr_max_puste_kg_paczka, "a było to:", max_puste_kg_paczka)
+    print("Total empty kilos: ", suma_puste_kg_paczka)
+    print("Most empty kilos was in the package number:", nr_max_puste_kg_paczka, "this was:", max_puste_kg_paczka)
