@@ -3,9 +3,9 @@ enter_error = "The item was considered to be wrong. Min 1 kg, max 10 kg. END OF 
 
 print(enter)
 
-waga_paczka = 0              # waga paczki
-nr_paczka = 1               # nr paczki wyslane
-puste_kg_paczka = 0         # ile pustych kg w danej paczce
+parcel_weight = 0           # total weight of the package
+parcel_number = 1           # the number of the parcel sent
+parcel_empty_kilograms = 0  # how many empty kilos are left in the parcel
 
 suma_puste_kg_paczka = 0    # suma pustych we wszystkich paczkach
 
@@ -35,41 +35,41 @@ while True:
         print(enter_error)
         break
     suma_waga_element = round(suma_waga_element + waga_element, 2)  # sumujemy wyslane kilogramy
-    waga_paczka = waga_paczka + waga_element    # dodajemy wagi elementow do paczki
-    if waga_paczka > 20:
+    parcel_weight = parcel_weight + waga_element    # dodajemy wagi elementow do paczki
+    if parcel_weight > 20:
         print('---------------------------------------------------------------')
-        print('Przekroczono 20kg/paczka! Jest w sumie:', waga_paczka, "do wyslania")
-        print('Aktualny nr paczki to:',  nr_paczka)
-        waga_paczka = round(waga_paczka - waga_element, 2)
-        print('Zamykam paczke:', nr_paczka, 'zostaje w niej elementow:', waga_paczka)
-        puste_kg_paczka = round(20 - waga_paczka, 2)  # puste w danej paczce
-        suma_puste_kg_paczka = round(suma_puste_kg_paczka + puste_kg_paczka, 2)
-        print('Puste kg w tej paczce: ', puste_kg_paczka)
-        if puste_kg_paczka > max_puste_kg_paczka:
-            max_puste_kg_paczka = puste_kg_paczka
-            nr_max_puste_kg_paczka = nr_paczka
-        nr_paczka += 1
-        print('Rozpoczynam paczke:', nr_paczka)
+        print('Przekroczono 20kg/paczka! Jest w sumie:', parcel_weight, "do wyslania")
+        print('Aktualny nr paczki to:',  parcel_number)
+        parcel_weight = round(parcel_weight - waga_element, 2)
+        print('Zamykam paczke:', parcel_number, 'zostaje w niej elementow:', parcel_weight)
+        parcel_empty_kilograms = round(20 - parcel_weight, 2)  # puste w danej paczce
+        suma_puste_kg_paczka = round(suma_puste_kg_paczka + parcel_empty_kilograms, 2)
+        print('Puste kg w tej paczce: ', parcel_empty_kilograms)
+        if parcel_empty_kilograms > max_puste_kg_paczka:
+            max_puste_kg_paczka = parcel_empty_kilograms
+            nr_max_puste_kg_paczka = parcel_number
+        parcel_number += 1
+        print('Rozpoczynam paczke:', parcel_number)
         print('---------------------------------------------------------------')
-        waga_paczka = waga_element    # te kg zostaja do next parcel
-        puste_kg_paczka = 0
+        parcel_weight = waga_element    # te kg zostaja do next parcel
+        parcel_empty_kilograms = 0
 #   break
-    if waga_paczka < 20:
-        print('Aktualna waga paczki to', waga_paczka)
-        print('Aktualny nr paczki to:', nr_paczka)
-        puste_kg_paczka = 0
-    if waga_paczka == 20:
-        print('Aktualna waga paczki to', waga_paczka, "rozpoczynam next paczke")
-        print('Zamykam paczke nr:', nr_paczka)
-        nr_paczka += 1
-        waga_paczka = 0
-        puste_kg_paczka = 0
+    if parcel_weight < 20:
+        print('Aktualna waga paczki to', parcel_weight)
+        print('Aktualny nr paczki to:', parcel_number)
+        parcel_empty_kilograms = 0
+    if parcel_weight == 20:
+        print('Aktualna waga paczki to', parcel_weight, "rozpoczynam next paczke")
+        print('Zamykam paczke nr:', parcel_number)
+        parcel_number += 1
+        parcel_weight = 0
+        parcel_empty_kilograms = 0
         continue
     continue
 if not error:
-    nr_paczka = nr_paczka-1
+    parcel_number = parcel_number-1
     print("*** Summary ***")
-    print("Number of packages shipped:", nr_paczka)
+    print("Number of packages shipped:", parcel_number)
     print("Number of kilos shipped:", suma_waga_element)
     # suma_pustych = liczba paczek * 20 - liczba kilogramów wysłanych
     print("Total empty kilos: ", suma_puste_kg_paczka)
