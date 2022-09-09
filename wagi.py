@@ -33,17 +33,17 @@ while True:
         error = True
         print(enter_error)
         break
-    suma_waga_element = round(suma_waga_element + waga_element, 2)  # sumujemy wyslane kilogramy
-    parcel_weight = parcel_weight + waga_element    # dodajemy wagi elementow do paczki
+    suma_waga_element = round(suma_waga_element + waga_element, 2)  # sum od the sent items
+    parcel_weight = parcel_weight + waga_element    # added weight of items to the parcel
     if parcel_weight > 20:
         print('---------------------------------------------------------------')
-        print('Przekroczono 20kg/paczka! Jest w sumie:', parcel_weight, "do wyslania")
-        print('Aktualny nr paczki to:',  parcel_number)
+        print('Exceeded 20 kg in parcels! It is in total:', parcel_weight, "to be shipped")
+        print('The current parcel number is:',  parcel_number)
         parcel_weight = round(parcel_weight - waga_element, 2)
-        print('Zamykam paczke:', parcel_number, 'zostaje w niej elementow:', parcel_weight)
+        print('I close the parcel number:', parcel_number, 'there are elements in it:', parcel_weight)
         parcel_empty_kilograms = round(20 - parcel_weight, 2)  # puste w danej paczce
         parcel_amount_empty_kilograms = round(parcel_amount_empty_kilograms + parcel_empty_kilograms, 2)
-        print('Puste kg w tej paczce: ', parcel_empty_kilograms)
+        print('Empty kg in this parcel: ', parcel_empty_kilograms)
         if parcel_empty_kilograms > max_parcel_empty_kilograms:
             max_parcel_empty_kilograms = parcel_empty_kilograms
             nr_max_parcel_empty_kilograms = parcel_number
