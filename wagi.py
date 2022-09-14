@@ -41,7 +41,7 @@ while True:
         print('The current parcel number is:',  parcel_number)
         parcel_weight = round(parcel_weight - waga_element, 2)
         print('I close the parcel number:', parcel_number, 'there are elements in it:', parcel_weight)
-        parcel_empty_kilograms = round(20 - parcel_weight, 2)  # puste w danej paczce
+        parcel_empty_kilograms = round(20 - parcel_weight, 2)  # empty kilograms in parcel
         parcel_amount_empty_kilograms = round(parcel_amount_empty_kilograms + parcel_empty_kilograms, 2)
         print('Empty kg in this parcel: ', parcel_empty_kilograms)
         if parcel_empty_kilograms > max_parcel_empty_kilograms:
@@ -50,7 +50,7 @@ while True:
         parcel_number += 1
         print('Starting parcel no:', parcel_number)
         print('---------------------------------------------------------------')
-        parcel_weight = waga_element    # te kg zostaja do next parcel
+        parcel_weight = waga_element    # kilograms to the next parcel
         parcel_empty_kilograms = 0
 #   break
     if parcel_weight < 20:
@@ -72,4 +72,5 @@ if not error:
     print("Number of kilos shipped:", suma_waga_element)
     # suma_pustych = liczba paczek * 20 - liczba kilogramów wysłanych
     print("Total empty kilos: ", parcel_amount_empty_kilograms)
-    print("Most empty kilos was in the package number:", nr_max_parcel_empty_kilograms, "this was:", max_parcel_empty_kilograms)
+    print("Most empty kilos was in the package number:", nr_max_parcel_empty_kilograms,
+          "this was:", max_parcel_empty_kilograms)
