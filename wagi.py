@@ -1,5 +1,5 @@
-enter = "Enter the weight of the elements in kg, min 1kg max 10kg. Zero completes loading."
-enter_error = "The item was considered to be wrong. Min 1 kg, max 10 kg. END OF THE PROGRAM!"
+enter = "Enter the weight of the elements in kg, minimum 1kg maximum 10kg. Zero completes loading."
+enter_error = "The item was considered to be wrong. Minimum 1 kg, maximum 10 kg. END OF THE PROGRAM!"
 
 print(enter)
 
@@ -12,14 +12,14 @@ max_parcel_empty_kilograms = 0          # most empty kilograms in the parcel
 nr_max_parcel_empty_kilograms = 1       # parcel number with the most empty kilograms
 
 element_weight = 0            # element weight taken from the int
-sum_element_weight = 0       # sum of kilos taken from the int
-nr_element = 0              # nr kolejnego elementu
+sum_element_weight = 0        # sum of kilos taken from the int
+nr_element = 0                # next element number
 
 step = 0
 error = False
 while True:
     step += 1
-    print("Element nr ", step, "waga:")
+    print("Element no", step, "weight:")
     element_weight = float(input())
     if element_weight == 0:
         error = False
@@ -33,7 +33,7 @@ while True:
         error = True
         print(enter_error)
         break
-    suma_element_weight = round(sum_element_weight + element_weight, 2)  # sum od the sent items
+    sum_element_weight = round(sum_element_weight + element_weight, 2)  # sum od the sent items
     parcel_weight = parcel_weight + element_weight    # added weight of items to the parcel
     if parcel_weight > 20:
         print('---------------------------------------------------------------')
@@ -69,7 +69,7 @@ if not error:
     parcel_number = parcel_number-1
     print("*** Summary ***")
     print("Number of packages shipped:", parcel_number)
-    print("Number of kilos shipped:", suma_element_weight)
+    print("Number of kilos shipped:", sum_element_weight)
     # sum of empty kilos = parcel number * 20 - sent kilos
     print("Total empty kilos: ", parcel_amount_empty_kilograms)
     print("Most empty kilos was in the package number:", nr_max_parcel_empty_kilograms,
